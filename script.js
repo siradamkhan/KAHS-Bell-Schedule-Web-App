@@ -1,6 +1,6 @@
 // Schedule with times in UTC
 const schedule = [
-    { label: "Breakfast Begin @ 8:05 AM", time: "2024-09-13T12:05:00Z" }, // Adjust to UTC
+    { label: "Breakfast Begin @ 8:05 AM", time: "2024-09-13T12:05:00Z" },
     { label: "Breakfast End @ 8:25 AM", time: "2024-09-13T12:25:00Z" },
     { label: "Period 1 Begin @ 9:58 AM", time: "2024-09-13T13:58:00Z" },
     { label: "Period 1 End @ 9:55 AM", time: "2024-09-13T13:55:00Z" },
@@ -17,7 +17,6 @@ const schedule = [
     { label: "Period 7 Begin @ 2:37 PM", time: "2024-09-13T18:37:00Z" },
     { label: "Period 7 End @ 4:07 PM", time: "2024-09-13T20:07:00Z" },
     { label: "HS Staff Dismissed @ 4:22 PM", time: "2024-09-13T20:22:00Z" },
-    // Test periods
     { label: "TEST PERIOD 1 @ 4:50 PM", time: "2024-09-13T20:50:00Z" },
     { label: "TEST PERIOD 2 @ 4:51 PM", time: "2024-09-13T20:51:00Z" },
     { label: "TEST PERIOD 3 @ 4:52 PM", time: "2024-09-13T20:52:00Z" }
@@ -25,13 +24,12 @@ const schedule = [
 
 function checkSchedule() {
     const now = new Date();
-    const nowUTC = now.toISOString(); // Get current time in UTC
+    const nowUTC = now.toISOString();
 
     schedule.forEach(period => {
-        // Check if the current time matches the scheduled time
         if (nowUTC.startsWith(period.time)) {
             document.getElementById('status').textContent = period.label;
-            playBellSound(); // Function to play the sound
+            playBellSound();
         }
     });
 }
@@ -41,4 +39,4 @@ function playBellSound() {
     audio.play();
 }
 
-setInterval(checkSchedule, 10000); // Check every ten second
+setInterval(checkSchedule, 1000); // Check every second
