@@ -14,7 +14,7 @@ const schedule = [
     { time: '14:34:00', label: 'Period 6 End @ 2:34 PM' },
     { time: '14:37:00', label: 'Period 7 Begin @ 2:37 PM' },
     { time: '16:07:00', label: 'Period 7 End @ 4:07 PM' },
-    { time: '18:53:00', label: 'HS Staff Dismissed @ 4:22 PM' }
+    { time: '18:55:00', label: 'HS Staff Dismissed @ 4:22 PM' }
 ];
 
 const bellSound = document.getElementById('bellSound');
