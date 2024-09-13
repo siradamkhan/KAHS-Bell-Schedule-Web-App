@@ -16,9 +16,9 @@ const schedule = [
     { label: "Period 7 Begin @ 2:37 PM", hours: 14, minutes: 37, triggered: false },
     { label: "Period 7 End @ 4:07 PM", hours: 16, minutes: 7, triggered: false },
     { label: "HS Staff Dismissed @ 4:22 PM", hours: 16, minutes: 22, triggered: false },
-    { label: "TEST PERIOD 1 @ 4:35 PM", hours: 16, minutes: 35, triggered: false },
-    { label: "TEST PERIOD 2 @ 4:36 PM", hours: 16, minutes: 36, triggered: false },
-    { label: "TEST PERIOD 3 @ 4:37 PM", hours: 16, minutes: 37, triggered: false },
+    { label: "TEST PERIOD 1 @ 4:40 PM", hours: 16, minutes: 40, triggered: false },
+    { label: "TEST PERIOD 2 @ 4:41 PM", hours: 16, minutes: 41, triggered: false },
+    { label: "TEST PERIOD 3 @ 4:42 PM", hours: 16, minutes: 42, triggered: false },
 ];
 
 // Function to format time for display
@@ -32,9 +32,9 @@ function formatTime(date) {
 // Function to check current time against schedule
 function checkTime() {
     const now = new Date();
-    console.log("Current Time:", formatTime(now)); // Log current time
     const currentTime = now.getHours() * 60 + now.getMinutes(); // Convert current time to minutes
 
+    console.log("Current Time:", formatTime(now)); // Log current time
     schedule.forEach(item => {
         const scheduledTime = item.hours * 60 + item.minutes; // Convert scheduled time to minutes
         console.log("Checking scheduled time:", item.label, "Scheduled:", scheduledTime, "Current:", currentTime);
