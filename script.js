@@ -14,7 +14,7 @@ const schedule = [
     { time: '14:34:00', label: 'Period 6 End @ 2:34 PM' },
     { time: '14:37:00', label: 'Period 7 Begin @ 2:37 PM' },
     { time: '16:07:00', label: 'Period 7 End @ 4:07 PM' },
-    { time: '16:22:00', label: 'HS Staff Dismissed @ 4:22 PM' }
+    { time: '18:53:00', label: 'HS Staff Dismissed @ 4:22 PM' }
 ];
 
 const bellSound = document.getElementById('bellSound');
@@ -25,18 +25,21 @@ function playBell() {
 
 function checkSchedule() {
     const now = new Date();
-    const currentTime = now.getHours() + ':' + ('0' + now.getMinutes()).slice(-2) + ':' + ('0' + now.getSeconds()).slice(-2);
+    const currentTime = now.toLocaleTimeString('en-US', { hour12: false }); // Ensures 24-hour format matching the schedule
 
     // Find the schedule entry that matches the current time
     const period = schedule.find(entry => entry.time === currentTime);
-    
+
     if (period) {
         playBell();
         console.log(period.label); // Log the period label to the console
-        // Optionally, display the label on the page
+        // Display the label on the page
         document.getElementById('periodLabel').innerText = period.label;
     }
 }
+
+// Syncing check every second to ensure precision
+setInterval(checkSchedule, 1000);
 
 window.onload = function() {
     const title = document.getElementById('title');
