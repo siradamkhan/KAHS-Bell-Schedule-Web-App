@@ -13,8 +13,8 @@ const schedule = [
     { time: '13:04:00', label: 'Period 6 Begin @ 1:04 PM' },
     { time: '14:34:00', label: 'Period 6 End @ 2:34 PM' },
     { time: '14:37:00', label: 'Period 7 Begin @ 2:37 PM' },
-    { time: '18:58:00', label: 'Period 7 End @ 4:07 PM' },
-    { time: '18:59:00', label: 'HS Staff Dismissed @ 4:22 PM' }
+    { time: '16:07:00', label: 'Period 7 End @ 4:07 PM' },
+    { time: '16:22:00', label: 'HS Staff Dismissed @ 4:22 PM' }
 ];
 
 const bellSound = document.getElementById('bellSound');
@@ -25,23 +25,27 @@ function playBell() {
 
 function checkSchedule() {
     const now = new Date();
-    const currentTime = now.toLocaleTimeString('en-US', { hour12: false }); // Ensures 24-hour format matching the schedule
+    const currentTime = now.toLocaleTimeString('en-US', { hour12: false });
+
+    // Log current time for debugging
+    console.log('Current time:', currentTime);
 
     // Find the schedule entry that matches the current time
     const period = schedule.find(entry => entry.time === currentTime);
-
+    
     if (period) {
         playBell();
         console.log(period.label); // Log the period label to the console
         // Display the label on the page
         document.getElementById('periodLabel').innerText = period.label;
+    } else {
+        document.getElementById('periodLabel').innerText = "Waiting for schedule...";
     }
 }
 
-// Syncing check every second to ensure precision
-setInterval(checkSchedule, 1000);
-
+// Ensure everything is fully loaded before starting to check the schedule
 window.onload = function() {
+    // Update the title color styling
     const title = document.getElementById('title');
     const text = title.innerText;
     const colors = ['green', 'orange', 'blue', 'lightcoral'];
@@ -56,4 +60,7 @@ window.onload = function() {
             return letter;
         }
     }).join('');
+
+    // Start checking the schedule every second
+    setInterval(checkSchedule, 1000);  // Check every second
 };
