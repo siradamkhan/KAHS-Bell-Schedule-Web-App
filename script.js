@@ -11,12 +11,12 @@ const schedule = [
     { time: '12:33:00', label: 'Lunch/Advisory Block 3 Begin @ 12:33 PM' },
     { time: '13:01:00', label: 'Lunch/Advisory Block 3 End @ 1:01 PM' },
     { time: '13:04:00', label: 'Period 6 Begin @ 1:04 PM' },
-	{ time: '14:12:00', label: 'Period 6 End @ 2:34 PM' },
-    { time: '14:13:00', label: 'Period 7 Begin @ 2:37 PM' },
-	{ time: '14:14:00', label: 'Period 6 End @ 2:34 PM' },
-    { time: '14:15:00', label: 'Period 7 Begin @ 2:37 PM' },
-    { time: '14:16:00', label: 'Period 6 End @ 2:34 PM' },
-    { time: '14:17:00', label: 'Period 7 Begin @ 2:37 PM' },
+	{ time: '14:21:00', label: 'Period 6 End @ 2:34 PM' },
+    { time: '14:22:00', label: 'Period 7 Begin @ 2:37 PM' },
+	{ time: '14:23:00', label: 'Period 6 End @ 2:34 PM' },
+    { time: '14:24:00', label: 'Period 7 Begin @ 2:37 PM' },
+    { time: '14:25:00', label: 'Period 6 End @ 2:34 PM' },
+    { time: '14:26:00', label: 'Period 7 Begin @ 2:37 PM' },
     { time: '09:46:00', label: 'Period 7 End @ 4:07 PM' },
     { time: '09:47:00', label: 'HS Staff Dismissed @ 4:22 PM' }
 ];
