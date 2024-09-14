@@ -25,10 +25,7 @@ function playBell() {
 
 function checkSchedule() {
     const now = new Date();
-    const currentTime = now.toLocaleTimeString('en-US', { hour12: false });
-
-    // Log current time for debugging
-    console.log('Current time:', currentTime);
+    const currentTime = now.getHours() + ':' + ('0' + now.getMinutes()).slice(-2) + ':' + ('0' + now.getSeconds()).slice(-2);
 
     // Find the schedule entry that matches the current time
     const period = schedule.find(entry => entry.time === currentTime);
@@ -36,16 +33,12 @@ function checkSchedule() {
     if (period) {
         playBell();
         console.log(period.label); // Log the period label to the console
-        // Display the label on the page
+        // Optionally, display the label on the page
         document.getElementById('periodLabel').innerText = period.label;
-    } else {
-        document.getElementById('periodLabel').innerText = "Waiting for schedule...";
     }
 }
 
-// Ensure everything is fully loaded before starting to check the schedule
 window.onload = function() {
-    // Update the title color styling
     const title = document.getElementById('title');
     const text = title.innerText;
     const colors = ['green', 'orange', 'blue', 'lightcoral'];
@@ -60,7 +53,4 @@ window.onload = function() {
             return letter;
         }
     }).join('');
-
-    // Start checking the schedule every second
-    setInterval(checkSchedule, 1000);  // Check every second
 };
