@@ -13,8 +13,8 @@ const schedule = [
     { time: '13:04:00', label: 'Period 6 Begin @ 1:04 PM' },
     { time: '14:34:00', label: 'Period 6 End @ 2:34 PM' },
     { time: '14:37:00', label: 'Period 7 Begin @ 2:37 PM' },
-    { time: '16:07:00', label: 'Period 7 End @ 4:07 PM' },
-    { time: '16:22:00', label: 'HS Staff Dismissed @ 4:22 PM' }
+    { time: '09:46:00', label: 'Period 7 End @ 4:07 PM' },
+    { time: '09:47:00', label: 'HS Staff Dismissed @ 4:22 PM' }
 ];
 
 const bellSound = document.getElementById('bellSound');
@@ -33,12 +33,14 @@ function checkSchedule() {
     if (period) {
         playBell();
         console.log(period.label); // Log the period label to the console
-        // Optionally, display the label on the page
         document.getElementById('periodLabel').innerText = period.label;
+    } else {
+        document.getElementById('periodLabel').innerText = "Waiting for schedule...";
     }
 }
 
 window.onload = function() {
+    // This code runs after the page is fully loaded
     const title = document.getElementById('title');
     const text = title.innerText;
     const colors = ['green', 'orange', 'blue', 'lightcoral'];
@@ -53,4 +55,7 @@ window.onload = function() {
             return letter;
         }
     }).join('');
+
+    // Start checking the schedule every 200ms after the page loads
+    setInterval(checkSchedule, 200);
 };
