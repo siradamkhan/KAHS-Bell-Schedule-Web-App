@@ -11,8 +11,12 @@ const schedule = [
     { time: '12:33:00', label: 'Lunch/Advisory Block 3 Begin @ 12:33 PM' },
     { time: '13:01:00', label: 'Lunch/Advisory Block 3 End @ 1:01 PM' },
     { time: '13:04:00', label: 'Period 6 Begin @ 1:04 PM' },
-    { time: '14:34:00', label: 'Period 6 End @ 2:34 PM' },
-    { time: '14:37:00', label: 'Period 7 Begin @ 2:37 PM' },
+	{ time: '14:12:00', label: 'Period 6 End @ 2:34 PM' },
+    { time: '14:13:00', label: 'Period 7 Begin @ 2:37 PM' },
+	{ time: '14:14:00', label: 'Period 6 End @ 2:34 PM' },
+    { time: '14:15:00', label: 'Period 7 Begin @ 2:37 PM' },
+    { time: '14:16:00', label: 'Period 6 End @ 2:34 PM' },
+    { time: '14:17:00', label: 'Period 7 Begin @ 2:37 PM' },
     { time: '09:46:00', label: 'Period 7 End @ 4:07 PM' },
     { time: '09:47:00', label: 'HS Staff Dismissed @ 4:22 PM' }
 ];
@@ -25,10 +29,10 @@ function playBell() {
 }
 
 function checkSchedule() {
-	
     const now = new Date();
     const currentTime = now.getHours() + ':' + ('0' + now.getMinutes()).slice(-2) + ':' + ('0' + now.getSeconds()).slice(-2);
-//	console.log(currentTime);
+
+	console.log(currentTime);
     // Find the schedule entry that matches the current time
     let period = schedule.find(entry => entry.time == currentTime);
     console.log(period);
